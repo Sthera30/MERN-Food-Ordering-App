@@ -22,7 +22,25 @@ const allowedOrigins = [
     'https://mern-food-ordering-frontend-app-3502.onrender.com'
   ];
   
- app.use(cors({
+
+  app.use(cors({
+    credentials: true,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  }));
+
+
+ /*app.use(cors({
       credentials: true,
       origin: (origin, callback) => {
           if (!origin || allowedOrigins.includes(origin)) {
@@ -32,6 +50,7 @@ const allowedOrigins = [
           }
       }
   }));
+  */
   
 
 /*app.use(cors({
