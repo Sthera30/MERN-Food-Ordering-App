@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 
 const allowedOrigins = [
     'http://localhost:5173', // Local frontend URLrrrrr
-    'http://localhost:8088'  // for production
+    'https://mern-food-ordering-backend-app.onrender.com'  // for production
 
   ];
   
