@@ -21,6 +21,12 @@ app.use(cors({
   credentials: true, // This allows cookies to be sent with the request
 }));
 
+// Middleware to handle preflight requests
+app.options('*', cors({
+  origin: 'https://mern-food-ordering-frontend-app-3502.onrender.com',
+  credentials: true,
+}));
+
 
 //middleware
 app.use(express.json())
