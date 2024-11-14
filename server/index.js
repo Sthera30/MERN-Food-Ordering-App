@@ -24,7 +24,6 @@ const allowedOrigins = [
   
 
  app.use(cors({
-      credentials: true,
       origin: (origin, callback) => {
           if (!origin || allowedOrigins.includes(origin)) {
               callback(null, true);
@@ -34,9 +33,14 @@ const allowedOrigins = [
       },
       credentials: true
   }));
-
-  app.options('*', cors()); // Allow preflight requests for all routes
-
+// Handle preflight requests
+app.options('*', cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: 'GET, POST, PUT, DELETE, OPTIONS',
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
+  
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
