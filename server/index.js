@@ -12,18 +12,30 @@ dotenv.config
 
 const app = express()
 
+app.use(cookieParser())
+
+
+app.use(cors({
+  origin: ['https://mern-food-ordering-frontend-app-3502.onrender.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true, // This allows cookies to be sent with the request
+}));
+
+
 //middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-const allowedOrigins = [
+
+
+/*const allowedOrigins = [
     'http://localhost:5173', // Local frontend URLrrrrr
      // for production
     'https://mern-food-ordering-frontend-app-3502.onrender.com'
   ];
-  
+  */
 
- app.use(cors({
+ /*app.use(cors({
       origin: (origin, callback) => {
           if (!origin || allowedOrigins.includes(origin)) {
               callback(null, true);
@@ -49,7 +61,7 @@ app.options('*', cors({
     next();
   });
   
-  
+  */
   
 
 /*app.use(cors({
@@ -58,8 +70,6 @@ app.options('*', cors({
 }));
 
   */
-
-app.use(cookieParser())
 
 //handles file uploads, documents etc
 app.post("/upload", ExpressFormidable({ maxFieldsSize: 5 * 2024 * 2024 }), uploadImage)
