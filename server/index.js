@@ -31,7 +31,8 @@ const allowedOrigins = [
           } else {
               callback(new Error('Not allowed by CORS'));
           }
-      }
+      },
+      credentials: true
   }));
 
   app.options('*', cors()); // Allow preflight requests for all routes
