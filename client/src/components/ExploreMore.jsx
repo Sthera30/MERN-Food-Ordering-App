@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { FaSearch, FaUtensils } from 'react-icons/fa'
-import '../css/exploreMore.css'
 import Img1 from '../assets/medium-shot-man-cooking.png'
-import Img2 from '../assets/dessert2.png'
-import Img3 from '../assets/dessert3.png'
-import Img4 from '../assets/dessert4.png'
-import Img5 from '../assets/dessert5.png'
-import Img6 from '../assets/dessert6.png'
-import Img7 from '../assets/dessert7.png'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import { useCartContext } from '../context/cartContext.jsx'
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { useUserContext } from '../context/userContext.jsx'
+import '../css/explore.css'
 
 function ExploreMore() {
 
