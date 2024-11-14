@@ -86,6 +86,13 @@ export const registerUser = async (req, res) => {
                 expiresIn: "1d"
             })
 
+            res.cookie('token', token, {
+                httpOnly: true,          // Cannot be accessed via JavaScript
+                secure: true,            // Ensures the cookie is sent only over HTTPS (set to false if testing on HTTP)
+                sameSite: 'None',        // Required for cross-origin requests
+                maxAge: 24 * 60 * 60 * 1000 // Cookie expiry (1 day)
+              });
+
             const transporter = nodeMail.createTransport({
 
                 service: "Gmail",
@@ -202,6 +209,13 @@ export const loginUser = async (req, res) => {
 
             expiresIn: "1d"
         })
+
+        res.cookie('token', token, {
+            httpOnly: true,          // Cannot be accessed via JavaScript
+            secure: true,            // Ensures the cookie is sent only over HTTPS (set to false if testing on HTTP)
+            sameSite: 'None',        // Required for cross-origin requests
+            maxAge: 24 * 60 * 60 * 1000 // Cookie expiry (1 day)
+          });
 
         return res.status(200).json({
             message: "logged in successfully", data: {
