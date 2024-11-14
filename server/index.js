@@ -17,30 +17,13 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 const allowedOrigins = [
-    'http://localhost:5173', // Local frontend URLrrrrr
+   // 'http://localhost:5173', // Local frontend URLrrrrr
     'https://mern-food-ordering-backend-app.onrender.com',  // for production
     'https://mern-food-ordering-frontend-app-3502.onrender.com'
   ];
   
 
-  app.use(cors({
-    credentials: true,
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-    exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-  }));
-
-
- /*app.use(cors({
+ app.use(cors({
       credentials: true,
       origin: (origin, callback) => {
           if (!origin || allowedOrigins.includes(origin)) {
@@ -50,7 +33,7 @@ const allowedOrigins = [
           }
       }
   }));
-  */
+  
   
 
 /*app.use(cors({
