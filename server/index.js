@@ -16,7 +16,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-/*const allowedOrigins = [
+const allowedOrigins = [
     'http://localhost:5173', // Local frontend URLrrrrr
      // for production
     'https://mern-food-ordering-frontend-app-3502.onrender.com'
@@ -50,14 +50,14 @@ app.options('*', cors({
   });
   
   
-  */
+  
 
-app.use(cors({
-  origin: ['http://localhost:5173', 'https://mern-food-ordering-frontend-app-3502.onrender.com'],
+/*app.use(cors({
+  origin: 'http://localhost:5173',
   credentials: true
 }));
 
-
+  */
 
 app.use(cookieParser())
 
