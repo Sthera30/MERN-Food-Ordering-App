@@ -7,5 +7,8 @@ export default defineConfig({
   build: {
     cssMinify: false,
     cssCodeSplit: false
+  },
+  css: {
+    modules: false
   }
 })
