@@ -23,7 +23,7 @@ function Register() {
 
         try {
 
-            const { data } = await axios.post("https://mern-food-ordering-backend-app.onrender.com/upload", formData)
+            const { data } = await axios.post("https://mern-food-ordering-app-amkd.onrender.com/upload", formData)
 
             setUploading(false)
 
@@ -54,7 +54,7 @@ function Register() {
 
         try {
 
-            const { data } = await axios.post("https://mern-food-ordering-backend-app.onrender.com/register", { name, email, password, confirmPassword, profileImage })
+            const { data } = await axios.post("https://mern-food-ordering-app-amkd.onrender.com/register", { name, email, password, confirmPassword, profileImage })
 
             if (data.error) {
                 toast.error(data.error)

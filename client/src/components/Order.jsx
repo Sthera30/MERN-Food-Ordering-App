@@ -38,7 +38,7 @@ function Order() {
 
             }))
 
-            const { data } = await axios.post(`https://mern-food-ordering-backend-app.onrender.com/order`, {
+            const { data } = await axios.post(`https://mern-food-ordering-app-amkd.onrender.com/order`, {
                 user: {
                     _id: user?.user?._id,
                     name: user?.user?.name,
