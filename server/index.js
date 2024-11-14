@@ -17,11 +17,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 const allowedOrigins = [
-    'http://localhost:5175', // Local frontend URL
-    'https://mern-food-ordering-app-10.onrender.com' // Production frontend URL
+    'http://localhost:5173', // Local frontend URLrrrrr
+    'http://localhost:8088'  // for production
+
   ];
   
-  app.use(cors({
+ app.use(cors({
       credentials: true,
       origin: (origin, callback) => {
           if (!origin || allowedOrigins.includes(origin)) {
@@ -32,6 +33,13 @@ const allowedOrigins = [
       }
   }));
   
+
+/*app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
+
+  */
 
 app.use(cookieParser())
 
