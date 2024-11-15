@@ -94,7 +94,6 @@ app.options('*', cors({
 
   */
 
-
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
