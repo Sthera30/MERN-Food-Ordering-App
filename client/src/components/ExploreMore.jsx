@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast'
 import { useCartContext } from '../context/cartContext.jsx'
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { useUserContext } from '../context/userContext.jsx'
-import '../css/ExploreMore.css'
+import '../css/exploreMoreSection.css'
 
 function ExploreMore() {
 
