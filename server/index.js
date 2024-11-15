@@ -12,15 +12,6 @@ dotenv.config
 
 const app = express()
 
-app.use(express.static('dist', {
-  setHeaders: (res, path) => {
-    res.set({
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0'
-    });
-  }
-}));
 
 app.use(cookieParser())
 
@@ -39,11 +30,11 @@ app.options('*', cors({
 
 
 const allowedOrigins = [
-  'http://localhost:5173', // Local frontend URLrrrrr
-  // for production
-  'https://mern-food-ordering-frontend-app-rypt.onrender.com'
-];
-
+    'http://localhost:5173', // Local frontend URLrrrrr
+     // for production
+    'https://mern-food-ordering-frontend-app-rypt.onrender.com'
+  ];
+  
 
 
 app.use((req, res, next) => {
@@ -67,34 +58,34 @@ app.use(express.urlencoded({ extended: false }))
   ];
   */
 
-/*app.use(cors({
-     origin: (origin, callback) => {
-         if (!origin || allowedOrigins.includes(origin)) {
-             callback(null, true);
-         } else {
-             callback(new Error('Not allowed by CORS'));
-         }
-     },
-     credentials: true
- }));
+ /*app.use(cors({
+      origin: (origin, callback) => {
+          if (!origin || allowedOrigins.includes(origin)) {
+              callback(null, true);
+          } else {
+              callback(new Error('Not allowed by CORS'));
+          }
+      },
+      credentials: true
+  }));
 // Handle preflight requests
 app.options('*', cors({
-   origin: allowedOrigins,
-   credentials: true,
-   methods: 'GET, POST, PUT, DELETE, OPTIONS',
-   allowedHeaders: ['Content-Type', 'Authorization']
- }));
- 
- app.use((req, res, next) => {
-   res.header('Access-Control-Allow-Origin', allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '');
-   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-   res.header('Access-Control-Allow-Credentials', 'true');
-   next();
- });
- 
- */
-
+    origin: allowedOrigins,
+    credentials: true,
+    methods: 'GET, POST, PUT, DELETE, OPTIONS',
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
+  
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
+  
+  */
+  
 
 /*app.use(cors({
   origin: 'http://localhost:5173',
@@ -231,7 +222,7 @@ const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
 
 
@@ -241,14 +232,14 @@ const PORT = process.env.PORT || 8088
 const mongo_url = process.env.MONGO_URL
 
 mongoose.connect(mongo_url).then(() => {
-  console.log("connected to the database!")
-  app.listen(PORT, () => {
-    console.log(`Server is listening at port ${PORT}!`);
-  })
+    console.log("connected to the database!")
+    app.listen(PORT, () => {
+        console.log(`Server is listening at port ${PORT}!`);
+    })
 })
 
-  .catch((err) => {
-    console.log("Error connecting to the database!", err);
-  })
+    .catch((err) => {
+        console.log("Error connecting to the database!", err);
+    })
 //mongodb://localhost:27017
 //mongodb+srv://tinisthera:Sict2018@tastehub-cluster.spq9v.mongodb.net/userDB?retryWrites=true&w=majority&appName=TasteHub-Cluster
