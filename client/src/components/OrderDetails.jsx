@@ -50,7 +50,7 @@ function OrderDetails() {
 
             <div className='arrow-left'>
 
-                <NavLink to={"/my-order"}>
+                <NavLink to={"/"}>
 
                     <FaArrowLeft style={{ color: '#fff', width: '2.2rem', height: '2.2rem', lineHeight: '2', background: 'purple', borderRadius: '50%', fontSize: '2rem', cursor: 'pointer', padding: '.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', marginBottom: '-2rem' }} />
 
