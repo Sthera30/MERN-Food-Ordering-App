@@ -94,6 +94,14 @@ app.options('*', cors({
 
   */
 
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
+
 //handles file uploads, documents etc
 app.post("/upload", ExpressFormidable({ maxFieldsSize: 5 * 2024 * 2024 }), uploadImage)
 
@@ -218,12 +226,6 @@ app.put("/edit_food", edit_food)
 
 app.delete("/delete_food", remove_food)
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '../client/dist')));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
-});
 
 
 //connect to the database
