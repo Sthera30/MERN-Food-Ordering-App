@@ -17,14 +17,14 @@ app.use(cookieParser())
 
 
 app.use(cors({
-  origin: ['https://mern-food-ordering-frontend-app-rypt.onrender.com'],
+  origin: ['https://mern-food-ordering-fullstack-app.onrender.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true, // This allows cookies to be sent with the request
 }));
 
 // Middleware to handle preflight requests
 app.options('*', cors({
-  origin: 'https://mern-food-ordering-frontend-app-rypt.onrender.com',
+  origin: 'https://mern-food-ordering-fullstack-app.onrender.com',
   credentials: true,
 }));
 
@@ -32,7 +32,7 @@ app.options('*', cors({
 const allowedOrigins = [
     'http://localhost:5173', // Local frontend URLrrrrr
      // for production
-    'https://mern-food-ordering-frontend-app-rypt.onrender.com'
+    'https://mern-food-ordering-fullstack-app.onrender.com'
   ];
   
 

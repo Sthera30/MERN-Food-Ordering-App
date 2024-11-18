@@ -23,7 +23,7 @@ function ExploreMore() {
 
         try {
 
-            const res = await axios.get("https://mern-food-ordering-app-amkd.onrender.com/allFood")
+            const res = await axios.get("https://mern-food-ordering-backend-app.onrender.com/allFood")
 
             if (res.data.success) {
                 setFood(res.data.data.all_food)
@@ -57,7 +57,7 @@ function ExploreMore() {
                 return
             }
 
-            const res = await axios.get(`https://mern-food-ordering-app-amkd.onrender.com/foodSearch?term=${searchTerm}`)
+            const res = await axios.get(`https://mern-food-ordering-backend-app.onrender.com/foodSearch?term=${searchTerm}`)
 
             if (res.data.success) {
                 setFood(res.data.data.food)
@@ -81,7 +81,7 @@ function ExploreMore() {
 
         try {
 
-            const res = await axios.delete(`https://mern-food-ordering-app-amkd.onrender.com/delete_food?id=${id}`)
+            const res = await axios.delete(`https://mern-food-ordering-backend-app.onrender.com/delete_food?id=${id}`)
 
             if (res.data.success) {
                 toast.success(res.data.message)
